@@ -73,12 +73,40 @@
         <td>450</td>
       </tr>
       <tr>
-        <td>prawns</td>
+        <td>Prawns</td>
         <td>Vijayawada</td>
         <td>900</td>
       </tr>
     </table>
 
+    <hr />
+
+    <h3>Finding area of simple polygon in O(N)</h3>
+
+    <blockquote>
+      The shoelace formula or shoelace algorithm (also known as Gauss's area
+      formula and the surveyor's formula) is a mathematical algorithm to
+      determine the area of a simple polygon whose vertices are described by
+      their Cartesian coordinates in the plane. The user cross-multiplies
+      corresponding coordinates to find the area encompassing the polygon, and
+      subtracts it from the surrounding polygon to find the area of the polygon
+      within.
+    </blockquote>
+
+    <a href="https://en.wikipedia.org/wiki/Shoelace_formula"
+      >Click here to know more</a>
+    
+    <pre>
+        double area(const vector<point>& fig) {
+            double res = 0;
+            for (unsigned i = 0; i < fig.size(); i++) {
+                point p = i ? fig[i - 1] : fig.back();
+                point q = fig[i];
+                res += (p.x - q.x) * (p.y + q.y);
+            }
+            return fabs(res) / 2;
+        }
+    </pre>
 
   </body>
 </html>
